@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EU Alignment Toolkit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hud">
+        <h1>EU Alignment Toolkit</h1>
+        <p>Drift → Compress → Gate → Align</p>
+      </header>
+
+      <section class="controls" aria-label="simulation controls">
+        <label>
+          <span>Drift strength</span>
+          <input id="drift" type="range" min="0" max="0.06" step="0.001" value="0.018" />
+        </label>
+        <label>
+          <span>Local coupling</span>
+          <input id="coupling" type="range" min="0" max="0.08" step="0.001" value="0.022" />
+        </label>
+        <label>
+          <span>Gate pull</span>
+          <input id="gatePull" type="range" min="0" max="0.04" step="0.001" value="0.008" />
+        </label>
+        <label>
+          <span>Gate spike</span>
+          <input id="gateSpike" type="range" min="0" max="1.6" step="0.05" value="1" />
+        </label>
+        <label>
+          <span>Post-lock oscillation</span>
+          <input id="postLock" type="range" min="0" max="5" step="0.1" value="1" />
+        </label>
+
+        <div class="actions">
+          <button id="reset" type="button">Reset</button>
+          <button id="playPause" type="button">Pause</button>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="simulation metrics">
+        <div><span>Phase coherence</span><strong id="mCoherence">0.00</strong></div>
+        <div><span>Distance to gate</span><strong id="mDistance">0</strong></div>
+        <div><span>Aligned</span><strong id="mAligned">0%</strong></div>
+        <div><span>Lock status</span><strong id="mStatus">Drift</strong></div>
+      </section>
+
+      <canvas id="viz" aria-label="EU Alignment visualization"></canvas>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
